@@ -9,6 +9,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def names
+    names = User.pluck(:name)
+
+    render json: { names: names }, status: :ok
+  end
+
   private
 
   def user_params
